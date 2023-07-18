@@ -23,8 +23,11 @@ public interface AnimalRepository extends GenericRepository<Animal,Integer> {
 
     //id, nombre, placa, foto,
 
-    @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.fotoAnimal AS fotoAnimal FROM Animal a INNER JOIN a.fichaMedica f WHERE LOWER(a.nombreAnimal) LIKE %:filter% OR LOWER(a.placaAnimal) LIKE %:filter%")
-    Page<PeyloadAnimal> findByPlacaOrNombre(@Param("filter") String filter, Pageable pageable);
+    @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.fotoAnimal AS fotoAnimal, f AS fichaMedica FROM Animal a INNER JOIN a.fichaMedica f WHERE LOWER(a.nombreAnimal) LIKE %:filter% OR LOWER(a.placaAnimal) LIKE %:filter%")
+    public Page<PeyloadAnimal> findByPlacaOrNombre(@Param("filter") String filter, Pageable pageable);
+
+    @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.fotoAnimal AS fotoAnimal, f AS fichaMedica FROM Animal a INNER JOIN a.fichaMedica f")
+    public Page<PeyloadAnimal> findByAllPlacaOrNombre(Pageable pageable);
 
 
     public Page<Animal> findByNombreAnimalContainingIgnoreCaseOrPlacaAnimalContainingIgnoreCase(String nameA, String placaA, Pageable pageable);
