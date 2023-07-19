@@ -3,13 +3,14 @@ package com.proyecto.faan.controller;
 import com.proyecto.faan.controller.Generic.GenericControllerImpl;
 import com.proyecto.faan.model.EncabezadoAdopcion;
 import com.proyecto.faan.model.Enfermedad;
+import com.proyecto.faan.peyload.PeyloadEnfermedadAnimal;
 import com.proyecto.faan.service.EncabezadoAdopcionService;
 import com.proyecto.faan.service.EnfermedadService;
 import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin("*")
 @RestController
@@ -20,5 +21,9 @@ public class EnfermedadController extends GenericControllerImpl<Enfermedad, Inte
     @Override
     protected GenericService<Enfermedad, Integer> getService() {
         return enfermedadService;
+    }
+    @GetMapping("/fichamedicaEnfermedad/{idFichaMedica}")
+    public List<PeyloadEnfermedadAnimal> buscarEnfermedadPorIdFichaMedica(@PathVariable Integer idFichaMedica) {
+        return enfermedadService.buscarEnfermedadPorIdFichaMedica(idFichaMedica);
     }
 }
