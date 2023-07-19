@@ -27,8 +27,11 @@ public class FichaRegistro implements Serializable {
     @OneToMany(mappedBy = "fichaRegistro")
     private List<Animal> animals;
 
-
     @ManyToOne
     @JoinColumn(name="idSituacionIngreso",referencedColumnName ="idSituacionIngreso")
     private SituacionIngreso situacionIngreso;
+
+    @ManyToOne
+    @JoinColumn(name="idPersona",referencedColumnName ="idPersona")
+    private Persona persona;
 }
