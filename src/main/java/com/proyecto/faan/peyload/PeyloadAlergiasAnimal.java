@@ -11,8 +11,8 @@ public interface PeyloadAlergiasAnimal {
     @Column(name="observaciones")
     String getobservaciones();
 
-    @Column(name="estadoAlergias")
-    String getestadoAlergias();
+    @Column(name="estado")
+    String getestado();
 
     @Column(name="nombreAlergias")
     String getnombreAlergias();

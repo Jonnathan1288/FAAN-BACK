@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface AlergiasRepository extends GenericRepository<Alergias,Integer> {
-    @Query("SELECT tipo.nombreAlergia as nombreAlergias, a.fechaDeteccion as fechaAlergias, a.observacion as observaciones, tipo.estado as estadoEnfermedad FROM Alergias a JOIN a.tipoAlergias tipo JOIN a.fichaMedica f WHERE f.idFichaMedica =:idFichaMedica")
+    @Query("SELECT tipo.nombreAlergia as nombreAlergias, a.fechaDeteccion as fechaAlergias, a.observacion as observaciones, tipo.estado as estado FROM Alergias a JOIN a.tipoAlergias tipo JOIN a.fichaMedica f WHERE f.idFichaMedica =:idFichaMedica")
     List<PeyloadAlergiasAnimal> findByAlergiasFichaMedicaId(Integer idFichaMedica);
 }

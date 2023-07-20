@@ -15,5 +15,5 @@ public interface PeyloadEnfermedadAnimal {
     String getestadoEnfermedad();
 
     @Column(name="nombreEnfermedad")
-    String getnombreEnfermedada();
+    String getnombreEnfermedad();
 }
