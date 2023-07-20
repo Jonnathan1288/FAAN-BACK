@@ -62,5 +62,10 @@ public class Persona implements Serializable {
     @OneToMany(mappedBy = "persona")
     private List<EncabezadoAdopcion> encabezadoAdopcions;
 
+    //Implement mapping fichaRegistro
+    @JsonIgnore
+    @OneToMany(mappedBy = "persona")
+    private List<FichaRegistro> fichaRegistros;
+
 
 }

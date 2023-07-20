@@ -17,7 +17,7 @@ public class TipoTratamiento {
     @Column(name = "idTipoTratamiento")
     private Integer idTipoTratamiento;
 
-    @Column(name = "nombreTratamiento")
+    @Column(name = "nombreTratamiento", unique = true)
     private String nombreTratamiento;
 
     @Column(name = "estado")
