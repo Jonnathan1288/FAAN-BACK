@@ -1,10 +1,8 @@
 package com.proyecto.faan.controller;
 
 import com.proyecto.faan.controller.Generic.GenericControllerImpl;
-import com.proyecto.faan.model.TipoVacuna;
 import com.proyecto.faan.model.Tratamiento;
-import com.proyecto.faan.peyload.PeyloadTratamientoAnimal;
-import com.proyecto.faan.service.TipoVacunaService;
+import com.proyecto.faan.payload.PeyloadTratamientoAnimal;
 import com.proyecto.faan.service.TratamientoService;
 import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
