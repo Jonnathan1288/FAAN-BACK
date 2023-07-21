@@ -1,9 +1,9 @@
 package com.proyecto.faan.repository;
 
 import com.proyecto.faan.model.Animal;
-import com.proyecto.faan.peyload.PeyloadAnimal;
-import com.proyecto.faan.peyload.PeyloadNumeroAdopcionFecha;
-import com.proyecto.faan.peyload.PeyloadNumeroAdopcionRaza;
+import com.proyecto.faan.payload.PeyloadAnimal;
+import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
+import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

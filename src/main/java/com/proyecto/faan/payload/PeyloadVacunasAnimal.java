@@ -1,4 +1,4 @@
-package com.proyecto.faan.peyload;
+package com.proyecto.faan.payload;
 
 import jakarta.persistence.Column;
 

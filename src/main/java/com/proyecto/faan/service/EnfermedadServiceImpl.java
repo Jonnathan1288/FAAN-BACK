@@ -1,9 +1,7 @@
 package com.proyecto.faan.service;
 
-import com.proyecto.faan.model.EncabezadoAdopcion;
 import com.proyecto.faan.model.Enfermedad;
-import com.proyecto.faan.peyload.PeyloadEnfermedadAnimal;
-import com.proyecto.faan.repository.EncabezadoAdopcionRepository;
+import com.proyecto.faan.payload.PeyloadEnfermedadAnimal;
 import com.proyecto.faan.repository.EnfermedadRepository;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import com.proyecto.faan.service.generic.GenericServiceImpl;

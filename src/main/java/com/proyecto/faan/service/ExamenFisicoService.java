@@ -1,7 +1,7 @@
 package com.proyecto.faan.service;
 
 import com.proyecto.faan.model.ExamenFisico;
-import com.proyecto.faan.peyload.PeyloadExamenFisicoAnimal;
+import com.proyecto.faan.payload.PeyloadExamenFisicoAnimal;
 import com.proyecto.faan.service.generic.GenericService;
 
 import java.util.List;

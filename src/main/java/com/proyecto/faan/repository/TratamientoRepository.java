@@ -1,8 +1,7 @@
 package com.proyecto.faan.repository;
 
-import com.proyecto.faan.model.TipoVacuna;
 import com.proyecto.faan.model.Tratamiento;
-import com.proyecto.faan.peyload.PeyloadTratamientoAnimal;
+import com.proyecto.faan.payload.PeyloadTratamientoAnimal;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
