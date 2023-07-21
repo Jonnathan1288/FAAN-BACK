@@ -68,6 +68,7 @@ public abstract class GenericControllerImpl <T, ID extends Serializable> impleme
             System.out.println("-> "+e.getCause());
             return new ResponseEntity<>("El identificador no se puede repetir.",HttpStatus.BAD_REQUEST);
         }catch (Exception e){
+            System.out.println("->eeeeeeeeeeee "+e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
