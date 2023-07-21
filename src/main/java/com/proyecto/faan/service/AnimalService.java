@@ -21,4 +21,6 @@ public interface AnimalService extends GenericService<Animal, Integer> {
     Page<PeyloadAnimal> findByPlacaOrNombre(@Param("filter") String filter, Pageable pageable);
     public Page<PeyloadAnimal> findByAllPlacaOrNombre(Pageable pageable);
 
+    public Boolean existsByPlacaAnimal(String placa);
+
 }
