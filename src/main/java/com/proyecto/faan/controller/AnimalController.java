@@ -74,4 +74,18 @@ public class AnimalController extends GenericControllerImpl<Animal, Integer> {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/exitPlaca/{placa}")
+    public Boolean existPlacaAnimal(@PathVariable("placa") String placa){
+        try {
+            if(animalService.existsByPlacaAnimal(placa)){
+                return true;
+            }else{
+                return false;
+            }
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
 }

@@ -56,4 +56,9 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
         }
         return null;
     }
+
+    @Override
+    public Boolean existsByPlacaAnimal(String placa) {
+        return animalRepository.existsByPlacaAnimal(placa);
+    }
 }

@@ -32,4 +32,6 @@ public interface AnimalRepository extends GenericRepository<Animal,Integer> {
 
     public Page<Animal> findByNombreAnimalContainingIgnoreCaseOrPlacaAnimalContainingIgnoreCase(String nameA, String placaA, Pageable pageable);
 
+    public Boolean existsByPlacaAnimal(String placa);
+
 }
