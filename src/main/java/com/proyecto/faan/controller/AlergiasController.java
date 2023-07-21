@@ -2,10 +2,8 @@ package com.proyecto.faan.controller;
 
 import com.proyecto.faan.controller.Generic.GenericControllerImpl;
 import com.proyecto.faan.model.Alergias;
-import com.proyecto.faan.model.Persona;
-import com.proyecto.faan.peyload.PeyloadAlergiasAnimal;
+import com.proyecto.faan.payload.PeyloadAlergiasAnimal;
 import com.proyecto.faan.service.AlergiasService;
-import com.proyecto.faan.service.PersonaService;
 import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

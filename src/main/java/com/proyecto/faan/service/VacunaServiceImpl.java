@@ -1,7 +1,7 @@
 package com.proyecto.faan.service;
 
 import com.proyecto.faan.model.Vacuna;
-import com.proyecto.faan.peyload.PeyloadVacunasAnimal;
+import com.proyecto.faan.payload.PeyloadVacunasAnimal;
 import com.proyecto.faan.repository.VacunaRepository;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import com.proyecto.faan.service.generic.GenericServiceImpl;

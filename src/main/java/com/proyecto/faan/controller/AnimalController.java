@@ -2,9 +2,9 @@ package com.proyecto.faan.controller;
 
 import com.proyecto.faan.controller.Generic.GenericControllerImpl;
 import com.proyecto.faan.model.Animal;
-import com.proyecto.faan.peyload.PeyloadAnimal;
-import com.proyecto.faan.peyload.PeyloadNumeroAdopcionFecha;
-import com.proyecto.faan.peyload.PeyloadNumeroAdopcionRaza;
+import com.proyecto.faan.payload.PeyloadAnimal;
+import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
+import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
 import com.proyecto.faan.service.AnimalService;
 import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;

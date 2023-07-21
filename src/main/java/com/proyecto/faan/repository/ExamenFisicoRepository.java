@@ -1,8 +1,7 @@
 package com.proyecto.faan.repository;
 
 import com.proyecto.faan.model.ExamenFisico;
-import com.proyecto.faan.peyload.PeyloadExamenFisicoAnimal;
-import com.proyecto.faan.peyload.PeyloadVacunasAnimal;
+import com.proyecto.faan.payload.PeyloadExamenFisicoAnimal;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,6 @@
-package com.proyecto.faan.peyload;
+package com.proyecto.faan.payload;
 
 import com.proyecto.faan.model.FichaMedica;
-import jakarta.persistence.Column;
 
 public interface PeyloadAnimal {
     String getidAnimal();

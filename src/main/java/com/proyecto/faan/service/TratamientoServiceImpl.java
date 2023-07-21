@@ -1,7 +1,7 @@
 package com.proyecto.faan.service;
 
 import com.proyecto.faan.model.Tratamiento;
-import com.proyecto.faan.peyload.PeyloadTratamientoAnimal;
+import com.proyecto.faan.payload.PeyloadTratamientoAnimal;
 import com.proyecto.faan.repository.TratamientoRepository;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import com.proyecto.faan.service.generic.GenericServiceImpl;
