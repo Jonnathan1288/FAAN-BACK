@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/tipoVacuna")
-public class TipoVacunaController extends GenericControllerImpl<TipoVacuna, Integer> {
+public class
+TipoVacunaController extends GenericControllerImpl<TipoVacuna, Integer> {
     @Autowired
     private TipoVacunaService tipoVacunaService;
 
