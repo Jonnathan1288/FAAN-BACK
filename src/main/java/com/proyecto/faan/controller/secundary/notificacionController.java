@@ -15,7 +15,7 @@ public class notificacionController {
     @Autowired
     private notificacionRepository notificacionService;
 
-    @PostMapping("/save")
+    @PostMapping("/notificaciones/save")
     public ResponseEntity<Notificacion> save(@RequestBody Notificacion notificacion){
         return new ResponseEntity<>(notificacionService.save(notificacion), HttpStatus.CREATED);
 
