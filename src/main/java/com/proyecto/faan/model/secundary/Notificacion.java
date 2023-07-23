@@ -14,8 +14,8 @@ public class Notificacion {
     @Id
     private String _id;
 
-    @Field("fechaCreacion")
-    private LocalDate fechaCreacion;
+   // @Field("fechaCreacion")
+    //private LocalDate fechaCreacion;
 
     @Field("idUsuario")
     private Integer idUsuario;
@@ -38,6 +38,6 @@ public class Notificacion {
     @Field("estadoNotifacion")
     private String estadoNotifacion;
 
-    @Field("proximaFechaFacunacion")
-    private LocalDate proximaFechaFacunacion;
+   // @Field("proximaFechaFacunacion")
+    //private LocalDate proximaFechaFacunacion;
 }
