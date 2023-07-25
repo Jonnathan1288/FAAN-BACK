@@ -9,7 +9,9 @@ public interface UsuarioRepository extends GenericRepository<Usuario,Integer> {
 
     public Usuario findByUsernameAndPassword(String username, String password);
 
-    public Usuario findByPersonaCorreo(String identificacion);
+    public Usuario findByPersonaCorreo(String email);
 
     public Usuario findByTokenPassword(String tokenPassword);
+
+    //public Boolean existsByPersonaCorreoRoles
 }
