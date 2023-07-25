@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Document(collection = "notificaciones")
@@ -14,20 +15,11 @@ public class Notificacion {
     @Id
     private String _id;
 
-   // @Field("fechaCreacion")
-    //private LocalDate fechaCreacion;
-
-    @Field("idUsuario")
-    private Integer idUsuario;
-
-    @Field("fullName")
-    private String fullName;
+    @Field("fullNameMascota")
+    private String fullNameMascota;
 
     @Field("cuerpoMensaje")
     private String cuerpoMensaje;
-
-    @Field("idMascota")
-    private Integer idMascota;
 
     @Field("placaMasctoa")
     private String placaMasctoa;
@@ -38,6 +30,6 @@ public class Notificacion {
     @Field("estadoNotifacion")
     private String estadoNotifacion;
 
-   // @Field("proximaFechaFacunacion")
-    //private LocalDate proximaFechaFacunacion;
+    @Field("proximaFechaFacunacion")
+    private Date proximaFechaFacunacion;
 }
