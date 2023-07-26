@@ -1,13 +1,9 @@
 package com.proyecto.faan.service.mongoService;
 
 
-import com.proyecto.faan.model.Alergias;
-import com.proyecto.faan.model.mongo.Notificacion;
-import com.proyecto.faan.repository.AlergiasRepository;
+import com.proyecto.faan.model.secundary.Notificacion;
 import com.proyecto.faan.repository.generic.GenericRepository;
-import com.proyecto.faan.repository.mongoRepository.NotificacionRepository;
-import com.proyecto.faan.service.generic.GenericService;
-import com.proyecto.faan.service.generic.GenericServiceImpl;
+import com.proyecto.faan.repository.secundary.NotificacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
