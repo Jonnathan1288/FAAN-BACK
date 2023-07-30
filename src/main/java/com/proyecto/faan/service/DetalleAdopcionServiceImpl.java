@@ -9,6 +9,8 @@ import com.proyecto.faan.service.generic.GenericServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class DetalleAdopcionServiceImpl extends GenericServiceImpl<DetalleAdopcion, Integer> implements DetalleAdopcionService{
     @Autowired
@@ -17,5 +19,10 @@ public class DetalleAdopcionServiceImpl extends GenericServiceImpl<DetalleAdopci
     @Override
     public GenericRepository<DetalleAdopcion, Integer> getDao() {
         return detalleAdopcionRepository;
+    }
+
+    @Override
+    public DetalleAdopcion findByIdAnimal(Integer idAnimal) {
+        return detalleAdopcionRepository.findByAnimalIdAnimal(idAnimal);
     }
 }

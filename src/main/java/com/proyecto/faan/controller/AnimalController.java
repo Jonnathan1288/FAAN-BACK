@@ -71,4 +71,18 @@ public class AnimalController extends GenericControllerImpl<Animal, Integer> {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/findByAdoptadoOrNoAdoptado/{adoptado}")
+    public ResponseEntity<?> AdoptadoOrNoAdoptadoAll(@PathVariable("adoptado") Boolean adoptado, @RequestParam(value = "busqueda", defaultValue = "", required = false) String NombreOrPlaca, @PageableDefault( page = 0, size = 3, direction = Sort.Direction.ASC) Pageable pageable) {
+        try {
+            Page<Animal> animalFind = animalService.AdoptadoOrNoAdoptado(adoptado, NombreOrPlaca, pageable);
+
+            if(animalFind != null){
+                return new ResponseEntity<>(animalFind, HttpStatus.OK);
+            }
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

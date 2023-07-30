@@ -20,4 +20,6 @@ public interface AnimalService extends GenericService<Animal, Integer> {
 
     Page<PeyloadAnimal> findByPlacaOrNombre(@Param("filter") String filter, Pageable pageable);
 
+    Page<Animal> AdoptadoOrNoAdoptado(@Param("adoptado") Boolean adoptado, @Param("nombreOrPlaca") String nombreOrPlaca, Pageable pageable);
+
 }

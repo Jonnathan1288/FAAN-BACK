@@ -46,4 +46,30 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
         }
         return null;
     }
+
+    @Override
+    public Page<Animal> AdoptadoOrNoAdoptado(Boolean adoptado, String nombreOrPlaca, Pageable pageable) {
+        Page<Animal> findAnimal = null;
+        if (adoptado) {
+            if (nombreOrPlaca.length() != 0) {
+                System.out.println("sssssssssssssssssssssss  1");
+                findAnimal = animalRepository.PlacaONombreAdopciones(nombreOrPlaca, pageable);
+            } else {
+                findAnimal = animalRepository.Adopciones(pageable);
+            }
+        } else {
+            if (nombreOrPlaca.length() != 0) {
+                System.out.println("sssssssssssssssssssssss  2");
+                findAnimal = animalRepository.PlacaONombreNoAdopciones(nombreOrPlaca, pageable);
+            } else {
+                findAnimal = animalRepository.NoAdopciones(pageable);
+            }
+        }
+        if(findAnimal != null){
+            return findAnimal;
+        } else {
+            System.out.println("sssssssssssssssssssssss  3");
+        }
+        return null;
+    }
 }
