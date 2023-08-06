@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Setter
 @Getter
 @Entity(name = "vacunas")
-public class Vacuna { //Verficado
+public class Vacuna implements Serializable { //Verficado
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
