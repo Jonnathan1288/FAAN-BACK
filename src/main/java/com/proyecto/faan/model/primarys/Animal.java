@@ -59,5 +59,9 @@ public class Animal implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "animal")
     private List<DetalleAdopcion> detalleAdopcion;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "animal")
+    private List<ControlAnimal> controlAnimals;
     
 }

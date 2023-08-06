@@ -28,7 +28,9 @@ public class EstadoAnimal implements Serializable {
     @Column(name = "estado")
     private String estado;
 
-
     // REFERENCE
+    @JsonIgnore
+    @OneToMany(mappedBy = "estadoAnimal")
+    private List<ControlAnimal> controlAnimals;
     
 }
