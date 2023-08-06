@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Entity(name = "vacunas")
-public class Vacuna {
+public class Vacuna { //Verficado
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +19,14 @@ public class Vacuna {
     @Column(name = "fechaVacuna")
     private LocalDate fechaVacuna;
 
+    @Column(name = "fechaProximaVacina")
+    private LocalDate fechaProximaVacina;
+
     @Column(name = "observaciones")
     private String observaciones;
 
     @Column(name = "estadoVacuna")
-    private String estadoVacuna;
+    private Boolean estadoVacuna;
 
     // RELATIONSHIP
     @ManyToOne
@@ -31,6 +34,7 @@ public class Vacuna {
     private TipoVacuna tipoVacuna;
 
     @ManyToOne
-    @JoinColumn(name="idFichaMedica",referencedColumnName ="idFichaMedica")
-    private FichaMedica fichaMedica;
+    @JoinColumn(name="idControlAnimal",referencedColumnName ="idControlAnimal")
+    private ControlAnimal controlAnimal;
+
 }

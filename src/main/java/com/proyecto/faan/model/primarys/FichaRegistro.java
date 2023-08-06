@@ -22,6 +22,9 @@ public class FichaRegistro implements Serializable {
     @Column(name = "descripcionFichaRegistro")
     private String descripcionFichaRegistro;
 
+    @Column(name = "origen") //campo agregado..
+    private String origen;
+
     @JsonIgnore
     @OneToMany(mappedBy = "fichaRegistro")
     private List<Animal> animals;
