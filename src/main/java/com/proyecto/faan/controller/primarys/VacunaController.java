@@ -22,8 +22,5 @@ public class VacunaController extends GenericControllerImpl<Vacuna, Integer> {
         return vacunaService;
     }
 
-    @GetMapping("/fichamedicaVacuna/{idFichaMedica}")
-    public List<PeyloadVacunasAnimal> buscarVacunasPorIdFichaMedica(@PathVariable Integer idFichaMedica) {
-        return vacunaService.buscarVacunasPorIdFichaMedica(idFichaMedica);
-    }
+
 }

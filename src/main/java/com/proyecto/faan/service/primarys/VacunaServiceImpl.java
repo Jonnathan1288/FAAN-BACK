@@ -25,9 +25,6 @@ public class VacunaServiceImpl extends GenericServiceImpl<Vacuna, Integer> imple
         return vacunaRepository;
     }
 
-    public List<PeyloadVacunasAnimal> buscarVacunasPorIdFichaMedica(Integer idFichaMedica) {
-        return vacunaRepository.findByFichaMedicaId(idFichaMedica);
-    }
 
 
 }

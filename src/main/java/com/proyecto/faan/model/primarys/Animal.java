@@ -31,6 +31,12 @@ public class Animal implements Serializable {
     @Column(name = "edadAnimal")
     private Integer edadAnimal;
 
+    @Column(name = "estatura")
+    private Integer estatura;
+
+    @Column(name = "esterilizado")
+    private Boolean esterilizado;
+
     @Column(name = "estadoAnimal")
     private String estadoAnimal;
 
@@ -43,10 +49,6 @@ public class Animal implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idFichaRegistro", referencedColumnName = "idFichaRegistro")
     private FichaRegistro fichaRegistro;
-
-    @ManyToOne
-    @JoinColumn(name = "idFichaMedica", referencedColumnName = "idFichaMedica")
-    private FichaMedica fichaMedica;
 
     @ManyToOne
     @JoinColumn(name = "idFudacion", referencedColumnName = "idFudacion")

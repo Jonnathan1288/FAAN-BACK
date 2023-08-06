@@ -18,8 +18,6 @@ public interface AnimalService extends GenericService<Animal, Integer> {
 
     public Page<Animal> findByNombreAnimalOrPlacaAnimal(String filter, Pageable pageable);
 
-    Page<PeyloadAnimal> findByPlacaOrNombre(@Param("filter") String filter, Pageable pageable);
-    public Page<PeyloadAnimal> findByAllPlacaOrNombre(Pageable pageable);
 
     public Boolean existsByPlacaAnimal(String placa);
 
