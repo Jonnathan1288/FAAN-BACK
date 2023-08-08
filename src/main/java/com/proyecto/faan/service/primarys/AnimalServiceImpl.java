@@ -37,6 +37,25 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
         return animalRepository.findByNombreAnimalContainingIgnoreCaseOrPlacaAnimalContainingIgnoreCase(filter, filter, pageable);
     }
 
+    @Override
+    public Page<PeyloadAnimal> findByAllPlacaOrNombre(Pageable pageable) {
+        Page<PeyloadAnimal> findAnimal = animalRepository.findByAllPlacaOrNombre(pageable);
+
+        if(findAnimal != null){
+            return findAnimal;
+        }
+        return null;
+    }
+
+    @Override
+    public Page<PeyloadAnimal> findByPlacaOrNombre(String filter, Pageable pageable) {
+        Page<PeyloadAnimal> findAnimal = animalRepository.findByPlacaOrNombre(filter, pageable);
+
+        if(findAnimal != null){
+            return findAnimal;
+        }
+        return null;
+    }
 
     @Override
     public Boolean existsByPlacaAnimal(String placa) {
