@@ -32,7 +32,7 @@ public class Animal implements Serializable {
     private Integer edadAnimal;
 
     @Column(name = "estatura")
-    private Integer estatura;
+    private String estatura;
 
     @Column(name = "esterilizado")
     private Boolean esterilizado;
