@@ -40,8 +40,9 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
     @Override
     public Page<PeyloadAnimal> findByAllPlacaOrNombre(Pageable pageable) {
         Page<PeyloadAnimal> findAnimal = animalRepository.findByAllPlacaOrNombre(pageable);
-
+        System.out.printf("llegog asta aqui");
         if(findAnimal != null){
+            System.out.printf("llegog asta aquilllololol");
             return findAnimal;
         }
         return null;

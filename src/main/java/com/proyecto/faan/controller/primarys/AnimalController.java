@@ -59,9 +59,9 @@ public class AnimalController extends GenericControllerImpl<Animal, Integer> {
     }
 
     @GetMapping("/findBynameOrplaca")
-    public ResponseEntity<?> findBynameOrplaca(@RequestParam String filter, @PageableDefault(page = 0, size = 3, direction = Sort.Direction.ASC) Pageable pageable) {
+    public ResponseEntity<?> findBynameOrplaca(@RequestParam(required = false) String filter, @PageableDefault(page = 0, size = 3, direction = Sort.Direction.ASC) Pageable pageable) {
         try {
-            if(filter.trim().isEmpty()){
+            if(filter == null){
                 return new ResponseEntity<>(animalService.findByAllPlacaOrNombre(pageable), HttpStatus.OK);
             }
 
@@ -71,6 +71,7 @@ public class AnimalController extends GenericControllerImpl<Animal, Integer> {
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }catch (Exception e){
+            System.out.printf(""+e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
