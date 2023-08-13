@@ -34,8 +34,8 @@ public class ControlAnimalController extends GenericControllerImpl<ControlAnimal
     }
 
 
-    @GetMapping("/peyload/controlanimal/{idAnimal}")
-    public List<PeyloadControlPorAnimal> AnimalesByControl(Integer idAnimal) {
+    @GetMapping("/peyload/{idAnimal}")
+    public List<PeyloadControlPorAnimal> AnimalesByControl(@PathVariable Integer idAnimal) {
         return controlAnimalService.AnimalesByControl(idAnimal);
     }
 }
