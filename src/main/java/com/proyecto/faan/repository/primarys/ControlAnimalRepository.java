@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public interface ControlAnimalRepository extends GenericRepository<ControlAnimal,Integer> {
 
-    @Query("SELECT c.fechaControlAnimal as fechaControlAnimal, c.nombreVeterinario as nombreVeterinario, c.observaciones as observaciones, c.pesoActual as pesoActual, e.tipoEstadoAnimal as tipoEstadoAnimal, e.descripcion as descripcion FROM ControlAnimal c JOIN c.estadoAnimal e JOIN c.animal a WHERE a.idAnimal=:idAnimal")
+    @Query("SELECT c.idControlAnimal as idControlAnimal ,c.fechaControlAnimal as fechaControlAnimal, c.nombreVeterinario as nombreVeterinario, c.observaciones as observaciones, c.pesoActual as pesoActual, e.tipoEstadoAnimal as tipoEstadoAnimal, e.descripcion as descripcion FROM ControlAnimal c JOIN c.estadoAnimal e JOIN c.animal a WHERE a.idAnimal=:idAnimal")
     List<PeyloadControlPorAnimal> AnimalesByControl(Integer idAnimal);
 
 }
