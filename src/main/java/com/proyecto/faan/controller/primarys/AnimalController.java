@@ -75,7 +75,7 @@ public class AnimalController extends GenericControllerImpl<Animal, Integer> {
 
     //    ====================================================================================
     @GetMapping("/findByAdoptadoOrNoAdoptado/{adoptado}")
-    public ResponseEntity<?> AdoptadoOrNoAdoptadoAll(@PathVariable("adoptado") Boolean adoptado, @RequestParam(value = "busqueda", defaultValue = "", required = false) String NombreOrPlaca, @PageableDefault( page = 0, size = 3, direction = Sort.Direction.ASC) Pageable pageable) {
+    public ResponseEntity<?> AdoptadoOrNoAdoptadoAll(@PathVariable("adoptado") Boolean adoptado, @RequestParam(value = "busqueda", defaultValue = "", required = false) String NombreOrPlaca, @PageableDefault(page = 0, size = 3, direction = Sort.Direction.ASC) Pageable pageable) {
         try {
             Page<Animal> animalFind = animalService.AdoptadoOrNoAdoptado(adoptado, NombreOrPlaca, pageable);
 

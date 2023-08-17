@@ -29,7 +29,22 @@ public class DetalleAdopcionController extends GenericControllerImpl<DetalleAdop
             if(detalleAdopcion != null){
                 return new ResponseEntity<>(detalleAdopcion, HttpStatus.OK);
             }
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/existIdAnimal/{idAnimal}")
+    public ResponseEntity<Boolean> existIdAnimal(@PathVariable("idAnimal") Integer idAnimal) {
+        try {
+            DetalleAdopcion detalleAdopcion = detalleAdopcionService.findByIdAnimal(idAnimal);
+
+            if(detalleAdopcion != null){
+                return new ResponseEntity<>(true, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(false, HttpStatus.OK);
+            }
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
