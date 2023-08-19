@@ -17,4 +17,17 @@ public class NotificacionServiceImpl  implements NotificacionService {
     public Notificacion save(Notificacion notificacion) {
         return notificacionRepository.save(notificacion);
     }
+
+    @Override
+    public Notificacion update(String id, Notificacion notificacion) {
+        Notificacion notificacionFound = notificacionRepository.findById(id).orElseThrow(RuntimeException::new);
+        notificacionFound.setEstadoNotifacion("V");
+        return notificacionRepository.save(notificacionFound);
+    }
+
+    @Override
+    public Notificacion findById(String id) {
+        return notificacionRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
 }
