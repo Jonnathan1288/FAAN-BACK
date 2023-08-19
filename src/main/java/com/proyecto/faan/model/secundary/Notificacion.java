@@ -21,9 +21,6 @@ public class Notificacion {
     @Field("cuerpoMensaje")
     private String cuerpoMensaje;
 
-    @Field("placaMasctoa")
-    private String placaMasctoa;
-
     @Field("diasFaltantes")
     private String diasFaltantes;
 
