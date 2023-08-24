@@ -10,5 +10,7 @@ import java.util.List;
 
 @Repository
 public interface VacunaRepository extends GenericRepository<Vacuna,Integer> {
+    @Query("SELECT t.nombreVacuna as nombreVacuna, v.fechaVacuna as fechaVacuna, v.observaciones as observaciones, v.estadoVacuna as estadoVacuna FROM vacunas v JOIN v.tipoVacuna t JOIN v.controlAnimal c WHERE c.idControlAnimal=:idControlAnimal")
+    List<PeyloadVacunasAnimal> AnimalesByVacuna(Integer idControlAnimal);
 
 }

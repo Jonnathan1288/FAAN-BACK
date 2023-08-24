@@ -3,8 +3,10 @@ package com.proyecto.faan.controller.primarys;
 import com.proyecto.faan.controller.Generic.GenericControllerImpl;
 import com.proyecto.faan.model.primarys.Animal;
 import com.proyecto.faan.model.primarys.ControlAnimal;
+import com.proyecto.faan.payload.PeyloadControlPorAnimal;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
+import com.proyecto.faan.payload.PeyloadVacunasAnimal;
 import com.proyecto.faan.service.generic.GenericService;
 import com.proyecto.faan.service.primarys.AnimalService;
 import com.proyecto.faan.service.primarys.ControlAnimalService;
@@ -31,4 +33,9 @@ public class ControlAnimalController extends GenericControllerImpl<ControlAnimal
         return controlAnimalService;
     }
 
+
+    @GetMapping("/peyload/{idAnimal}")
+    public List<PeyloadControlPorAnimal> AnimalesByControl(@PathVariable Integer idAnimal) {
+        return controlAnimalService.AnimalesByControl(idAnimal);
+    }
 }

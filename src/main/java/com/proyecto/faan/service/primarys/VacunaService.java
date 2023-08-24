@@ -7,4 +7,5 @@ import com.proyecto.faan.service.generic.GenericService;
 import java.util.List;
 
 public interface VacunaService extends GenericService<Vacuna, Integer> {
+    List<PeyloadVacunasAnimal> AnimalesByVacuna(Integer idControlAnimal);
 }
