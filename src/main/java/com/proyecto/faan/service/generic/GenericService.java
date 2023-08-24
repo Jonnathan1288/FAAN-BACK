@@ -12,6 +12,8 @@ public interface GenericService <T, ID extends Serializable>{
 
     public Page<T> findByAll(Pageable pageable); //Pageable...
 
+    Page<T> findByAll(Pageable pageable, String columnName, String value);
+
     public T save(T entity);
 
     public T update(ID id, T entity);
