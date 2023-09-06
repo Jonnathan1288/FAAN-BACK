@@ -22,4 +22,8 @@ public interface AnimalService extends GenericService<Animal, Integer> {
 
     public Boolean existsByPlacaAnimal(String placa);
 
+    //    ====================================================================================
+    Page<Animal> AdoptadoOrNoAdoptado(@Param("adoptado") Boolean adoptado, @Param("nombreOrPlaca") String nombreOrPlaca, Pageable pageable);
+    //    ====================================================================================
+
 }
