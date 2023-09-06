@@ -16,4 +16,12 @@ public class DetalleAdopcionServiceImpl extends GenericServiceImpl<DetalleAdopci
     public GenericRepository<DetalleAdopcion, Integer> getDao() {
         return detalleAdopcionRepository;
     }
+
+    //    ====================================================================================
+    @Override
+    public DetalleAdopcion findByIdAnimal(Integer idAnimal) {
+        return detalleAdopcionRepository.findByAnimalIdAnimal(idAnimal);
+    }
+    //    ====================================================================================
+
 }
