@@ -12,9 +12,9 @@ public class CambiarPasswordDTO {
     @NotBlank
     private String password;
     @NotBlank
-    private String confirmPassword;
+    private String passwordr;
     @NotBlank
-    private String tokenPassword;
+    private String token;
 
 
 }
