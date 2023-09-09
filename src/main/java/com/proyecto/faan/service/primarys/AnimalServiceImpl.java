@@ -62,4 +62,29 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
     public Boolean existsByPlacaAnimal(String placa) {
         return animalRepository.existsByPlacaAnimal(placa);
     }
+
+    //    ====================================================================================
+    @Override
+    public Page<Animal> AdoptadoOrNoAdoptado(Boolean adoptado, String nombreOrPlaca, Pageable pageable) {
+        Page<Animal> findAnimal = null;
+        if (adoptado) {
+            if (nombreOrPlaca.length() != 0) {
+                findAnimal = animalRepository.PlacaONombreAdopciones(nombreOrPlaca, pageable);
+            } else {
+                findAnimal = animalRepository.Adopciones(pageable);
+            }
+        } else {
+            if (nombreOrPlaca.length() != 0) {
+                findAnimal = animalRepository.PlacaONombreNoAdopciones(nombreOrPlaca, pageable);
+            } else {
+                findAnimal = animalRepository.NoAdopciones(pageable);
+            }
+        }
+        if(findAnimal != null){
+            return findAnimal;
+        }
+        return null;
+    }
+    //    ====================================================================================
+
 }

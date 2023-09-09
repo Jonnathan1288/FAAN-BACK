@@ -6,4 +6,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DetalleAdopcionRepository extends GenericRepository<DetalleAdopcion,Integer> {
+
+    //    ====================================================================================
+    DetalleAdopcion findByAnimalIdAnimal(Integer idAnimal);
+    //    ====================================================================================
+
 }
