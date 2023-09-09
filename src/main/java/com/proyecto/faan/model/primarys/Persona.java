@@ -20,7 +20,7 @@ public class Persona implements Serializable {
     @Column(name = "idPersona")
     private Integer idPersona;
 
-    @Column(name = "identificacion")
+    @Column(name = "identificacion", unique = true)
     private String identificacion;
 
     @Column(name = "nombre1")
@@ -41,7 +41,7 @@ public class Persona implements Serializable {
     @Column(name = "direccion")
     private String direccion;
 
-    @Column(name = "correo")
+    @Column(name = "correo", unique = true)
     private String correo;
 
     @Column(name = "telefono")
