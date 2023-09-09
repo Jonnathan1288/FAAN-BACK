@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class PersonaController extends GenericControllerImpl<Persona, Integer> {
     @Autowired
     private PersonaService personaService;
+
     @Override
     protected GenericService<Persona, Integer> getService() {
         return personaService;
@@ -30,14 +31,24 @@ public class PersonaController extends GenericControllerImpl<Persona, Integer> {
         try {
             Page<Persona> personaFind = personaService.findByCedulaOrApellido(filter, pageable);
 
-            if(personaFind != null){
+            if (personaFind != null) {
                 return new ResponseEntity<>(personaFind, HttpStatus.OK);
             }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     //    ====================================================================================
+
+    @GetMapping("/cedulaRegistra/{cedulaPersona}")
+    public Boolean cedulaRegistra(@PathVariable("cedulaPersona") String cedulaPersona) {
+        try {
+            return personaService.existsByIdentificacion(cedulaPersona);
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
 
 }
