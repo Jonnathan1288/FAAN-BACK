@@ -51,4 +51,14 @@ public class PersonaController extends GenericControllerImpl<Persona, Integer> {
 
     }
 
+    @GetMapping("/correoRegistrado/{correoPersona}")
+    public Boolean correoRegistrado(@PathVariable("correoPersona") String correoPersona) {
+        try {
+            return personaService.existsByCorreo(correoPersona);
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
+
 }

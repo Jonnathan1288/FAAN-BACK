@@ -20,4 +20,6 @@ public interface PersonaRepository extends GenericRepository<Persona, Integer> {
     int contarCedulas(@Param("cedulaPersona") String cedulaPersona);*/
 
     Boolean existsByIdentificacion(@Param("cedulaPersona") String cedulaPersona);
+
+    Boolean existsByCorreo(@Param("correoPersona") String correoPersona);
 }

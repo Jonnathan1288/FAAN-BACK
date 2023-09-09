@@ -29,10 +29,15 @@ public class PersonaServiceImpl extends GenericServiceImpl<Persona, Integer> imp
         }
         return null;
     }
-
+    //    ====================================================================================
     @Override
     public Boolean existsByIdentificacion(String cedulaPersona) {
         return personaRepository.existsByIdentificacion(cedulaPersona);
     }
-    //    ====================================================================================
+
+    @Override
+    public Boolean existsByCorreo(String correoPersona) {
+        return personaRepository.existsByCorreo(correoPersona);
+    }
+
 }

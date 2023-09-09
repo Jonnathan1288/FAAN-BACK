@@ -13,4 +13,6 @@ public interface PersonaService extends GenericService<Persona, Integer> {
     //    ====================================================================================
 
     Boolean existsByIdentificacion(String cedulaPersona);
+
+    Boolean existsByCorreo(String correoPersona);
 }
