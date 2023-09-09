@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonaServiceImpl  extends GenericServiceImpl<Persona, Integer> implements PersonaService{
+public class PersonaServiceImpl extends GenericServiceImpl<Persona, Integer> implements PersonaService {
     @Autowired
     private PersonaRepository personaRepository;
 
@@ -24,11 +24,20 @@ public class PersonaServiceImpl  extends GenericServiceImpl<Persona, Integer> im
     public Page<Persona> findByCedulaOrApellido(String filter, Pageable pageable) {
         Page<Persona> findPersona = personaRepository.cedulaOrApellido(filter, pageable);
 
-        if(findPersona != null){
+        if (findPersona != null) {
             return findPersona;
         }
         return null;
     }
     //    ====================================================================================
+    @Override
+    public Boolean existsByIdentificacion(String cedulaPersona) {
+        return personaRepository.existsByIdentificacion(cedulaPersona);
+    }
+
+    @Override
+    public Boolean existsByCorreo(String correoPersona) {
+        return personaRepository.existsByCorreo(correoPersona);
+    }
 
 }

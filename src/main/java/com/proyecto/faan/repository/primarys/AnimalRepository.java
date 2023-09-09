@@ -23,7 +23,7 @@ public interface AnimalRepository extends GenericRepository<Animal,Integer> {
 
     //id, nombre, placa, foto,
 
-    @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.fotoAnimal AS fotoAnimal FROM Animal a WHERE LOWER(a.nombreAnimal) LIKE %:filter% OR LOWER(a.placaAnimal) LIKE %:filter%")
+    @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.fotoAnimal AS fotoAnimal FROM Animal a WHERE (LOWER(a.nombreAnimal) LIKE CONCAT('%', COALESCE(:filter, ''), '%') OR LOWER(a.placaAnimal) LIKE CONCAT('%', COALESCE(:filter, ''), '%'))")
     public Page<PeyloadAnimal> findByPlacaOrNombre(@Param("filter") String filter, Pageable pageable);
 
     @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.fotoAnimal AS fotoAnimal FROM Animal a")
