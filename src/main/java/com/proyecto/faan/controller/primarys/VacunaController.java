@@ -24,7 +24,7 @@ public class VacunaController extends GenericControllerImpl<Vacuna, Integer> {
     }
 
     @GetMapping("/peyload/vacunasanimal/{idControlAnimal}")
-    public List<PeyloadVacunasAnimal> AnimalesByVacuna(Integer idControlAnimal) {
+    public List<PeyloadVacunasAnimal> AnimalesByVacuna(@PathVariable Integer idControlAnimal) {
         return vacunaService.AnimalesByVacuna(idControlAnimal);
     }
 
