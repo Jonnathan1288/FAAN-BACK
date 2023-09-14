@@ -12,4 +12,7 @@ public interface PersonaService extends GenericService<Persona, Integer> {
     Page<Persona> findByCedulaOrApellido(@Param("filter") String filter, Pageable pageable);
     //    ====================================================================================
 
+    Boolean existsByIdentificacion(String cedulaPersona);
+
+    Boolean existsByCorreo(String correoPersona);
 }
