@@ -1,6 +1,7 @@
 package com.proyecto.faan.service.primarys;
 
 import com.proyecto.faan.model.primarys.Persona;
+import com.proyecto.faan.payload.PersonFind;
 import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,4 +16,7 @@ public interface PersonaService extends GenericService<Persona, Integer> {
     Boolean existsByIdentificacion(String cedulaPersona);
 
     Boolean existsByCorreo(String correoPersona);
+
+    public PersonFind findPersonabyIdentificacion(String identificacion);
+
 }

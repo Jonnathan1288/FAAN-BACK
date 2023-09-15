@@ -5,6 +5,8 @@ import com.proyecto.faan.repository.primarys.UsuarioRepository;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import com.proyecto.faan.service.generic.GenericServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,5 +32,15 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, Integer> imp
     @Override
     public Usuario findByTokenPassword(String tokenPassword) {
         return usuarioRepository.findByTokenPassword(tokenPassword);
+    }
+
+    @Override
+    public Boolean existsByUsername(String username) {
+        return usuarioRepository.existsByUsername(username);
+    }
+
+    @Override
+    public Page<Usuario> findByPersonaIdentificacionContainingIgnoreCaseOrUsernameContainingIgnoreCase(String key, Pageable pageable) {
+        return usuarioRepository.findByPersonaIdentificacionContainingIgnoreCaseOrUsernameContainingIgnoreCase(key, key, pageable);
     }
 }
