@@ -7,6 +7,8 @@ import com.proyecto.faan.service.generic.GenericServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RazaAnimalServiceImpl extends GenericServiceImpl<RazaAnimal, Integer> implements RazaAnimalService{
     @Autowired
@@ -15,5 +17,10 @@ public class RazaAnimalServiceImpl extends GenericServiceImpl<RazaAnimal, Intege
     @Override
     public GenericRepository<RazaAnimal, Integer> getDao() {
         return razaAnimalRepository;
+    }
+
+    @Override
+    public List<RazaAnimal> findByEstadoRaza() {
+        return razaAnimalRepository.findByEstadoRaza("A");
     }
 }

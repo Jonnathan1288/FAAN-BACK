@@ -2,6 +2,7 @@ package com.proyecto.faan.controller.primarys;
 
 import com.proyecto.faan.controller.Generic.GenericControllerImpl;
 import com.proyecto.faan.model.primarys.Animal;
+import com.proyecto.faan.payload.AnimalFilter;
 import com.proyecto.faan.payload.PeyloadAnimal;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
@@ -22,8 +23,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/animal")
 public class AnimalController extends GenericControllerImpl<Animal, Integer> {
-    @Autowired
     private AnimalService animalService;
+
+    @Autowired
+    public AnimalController(AnimalService animalService){
+        this.animalService = animalService;
+    }
     @Override
     protected GenericService<Animal, Integer> getService() {
         return animalService;
@@ -106,4 +111,25 @@ public class AnimalController extends GenericControllerImpl<Animal, Integer> {
     }
     //    ====================================================================================
 
+
+    @GetMapping("/findByEsterilizadoFilter/{key}")
+    public ResponseEntity<List<AnimalFilter>> findByAnimalEsterilizadoFilter(@PathVariable("key") Boolean key) {
+        try {
+            return new ResponseEntity<>(animalService.findByEsterilizadoAnimalFilterExport(key), HttpStatus.OK);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/findByMultipleAtributesFilter")
+    public ResponseEntity<List<AnimalFilter>> findByMultipleAtributesFilter(@RequestParam(value = "key", required = false) Boolean key, @RequestParam(value = "status", required = false) String status) {
+        System.out.println("key-> "+key);
+        try {
+            return new ResponseEntity<>(animalService.findByMultipleAttributes(key, status), HttpStatus.OK);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

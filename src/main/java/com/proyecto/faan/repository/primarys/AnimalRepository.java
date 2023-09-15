@@ -1,6 +1,8 @@
 package com.proyecto.faan.repository.primarys;
 
 import com.proyecto.faan.model.primarys.Animal;
+import com.proyecto.faan.model.primarys.Vacuna;
+import com.proyecto.faan.payload.AnimalFilter;
 import com.proyecto.faan.payload.PeyloadAnimal;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
@@ -43,5 +45,14 @@ public interface AnimalRepository extends GenericRepository<Animal,Integer> {
     @Query(value = "SELECT a.nombre_animal as nombreAnimal, a.* FROM animales a LEFT JOIN detalle_adopcion da ON da.id_animal = a.id_animal WHERE da.id_animal IS NULL AND (LOWER(a.nombre_animal) LIKE LOWER(CONCAT('%', :nombreOrPlaca, '%')) OR LOWER(a.placa_animal) LIKE LOWER(CONCAT('%', :nombreOrPlaca, '%')))", nativeQuery = true)
     public Page<Animal> PlacaONombreNoAdopciones(@Param("nombreOrPlaca") String nombreOrPlaca, Pageable pageable);
 //    ====================================================================================
+
+
+    //MY QUERY
+    @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.esterilizado as esterilizado,a.estadoAnimal as estadoAnimal, r.nombreRaza as nombreRaza FROM Animal a INNER JOIN a.razaAnimal r WHERE a.esterilizado = :esterilizado")
+    public List<AnimalFilter> findByEsterilizadoAnimalFilterExport(@Param("esterilizado") Boolean esterilizado);
+
+    @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.esterilizado AS esterilizado, a.estadoAnimal AS estadoAnimal, r.nombreRaza AS nombreRaza FROM Animal a INNER JOIN a.razaAnimal r WHERE (:esterilizado IS NULL OR a.esterilizado = :esterilizado) AND (:status IS NULL OR a.estadoAnimal = :status)")
+    public List<AnimalFilter> findByMultipleAttributes(@Param("esterilizado") Boolean esterilizado, @Param("status") String status);
+
 
 }
