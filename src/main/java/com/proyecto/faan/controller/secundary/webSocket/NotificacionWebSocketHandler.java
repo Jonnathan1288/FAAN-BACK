@@ -12,6 +12,8 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -25,24 +27,29 @@ public class NotificacionWebSocketHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
-        System.out.println("Hola --> "+session);
         sessions.add(session);
 
-        List<Notificacion> find = notificacionRepository.findByEstadoNotifacion("A");
+        // Obtener la fecha actual
+        Date fechaActual = new Date();
+
+        // Calcular la fecha dentro de 4 días
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaActual);
+        calendar.add(Calendar.DATE, 4);
+        Date fechaFutura = calendar.getTime();
+
+        List<Notificacion> find = notificacionRepository.findNotificacionesProximaVacuna(fechaActual, fechaFutura);
         enviarNotificacionesAUsuarios(find);
     }
 
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message)
             throws InterruptedException, IOException {
-
         String payload = message.getPayload();
         JSONObject jsonObject = new JSONObject(payload);
-        session.sendMessage(new TextMessage("Hooliii " + jsonObject.get("user")));
     }
 
     public void enviarNotificacionesAUsuarios(List<Notificacion> notificaciones) {
-        System.out.println("Llego---");
         try {
             for (WebSocketSession session : sessions) {
                 if (session.isOpen()) {
@@ -57,13 +64,18 @@ public class NotificacionWebSocketHandler extends TextWebSocketHandler {
 
     @Scheduled(fixedRate = 4000)
     public void enviarNotificacionesPeriodicamente() {
-        List<Notificacion> notificaciones = notificacionRepository.findByEstadoNotifacion("A");
-        enviarNotificacionesAUsuarios(notificaciones);
+        // Obtener la fecha actual
+        Date fechaActual = new Date();
+
+        // Calcular la fecha dentro de 4 días
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaActual);
+        calendar.add(Calendar.DATE, 4);
+        Date fechaFutura = calendar.getTime();
+
+        List<Notificacion> notifiaciones = notificacionRepository.findNotificacionesProximaVacuna(fechaActual, fechaFutura);
+        enviarNotificacionesAUsuarios(notifiaciones);
     }
-
-
-
-
 
 }
 
