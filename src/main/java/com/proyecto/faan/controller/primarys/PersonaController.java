@@ -2,6 +2,7 @@ package com.proyecto.faan.controller.primarys;
 
 import com.proyecto.faan.controller.Generic.GenericControllerImpl;
 import com.proyecto.faan.model.primarys.Persona;
+import com.proyecto.faan.payload.PersonFind;
 import com.proyecto.faan.service.primarys.PersonaService;
 import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/persona")
 public class PersonaController extends GenericControllerImpl<Persona, Integer> {
-    @Autowired
     private PersonaService personaService;
+    @Autowired
+    public PersonaController (PersonaService personaService){
+        this.personaService = personaService;
+    }
 
     @Override
     protected GenericService<Persona, Integer> getService() {
@@ -59,6 +63,21 @@ public class PersonaController extends GenericControllerImpl<Persona, Integer> {
             return false;
         }
 
+    }
+
+    @GetMapping("/findByIdentificacion/{ci}")
+    public ResponseEntity<PersonFind> findByCedulaOrNombre(@PathVariable("ci") String filter) {
+        try {
+            PersonFind personaFind = personaService.findPersonabyIdentificacion(filter);
+
+            if (personaFind != null) {
+                return new ResponseEntity<>(personaFind, HttpStatus.OK);
+            }
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

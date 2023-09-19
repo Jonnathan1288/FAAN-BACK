@@ -20,20 +20,20 @@ public class Usuario implements Serializable {
     @Column(name = "idUsuario")
     private Integer idUsuario;
 
-    @Column(name = "username", unique = true)
+    @Column(name = "username", unique = true, length = 30)
     @NotBlank(message = "El campo noo debe estar vacio")
     private String username;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "fotoPerfil")
+    @Column(name = "fotoPerfil", length = 100)
     private String fotoPerfil;
 
     @Column(name = "estadoUsuario", columnDefinition = "BOOLEAN")
     private Boolean estadoUsuario;
 
-    @Column(name = "tokenPassword", length = 1800)
+    @Column(name = "tokenPassword", length = 200)
     private String tokenPassword;
 
     // RELATIONS

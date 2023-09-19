@@ -22,16 +22,16 @@ public class Animal implements Serializable {
     @Column(name = "placaAnimal", unique = true)
     private String placaAnimal;
 
-    @Column(name = "nombreAnimal", length = 255)
+    @Column(name = "nombreAnimal", length = 70)
     private String nombreAnimal;
 
-    @Column(name = "fotoAnimal")
+    @Column(name = "fotoAnimal", length = 100)
     private String fotoAnimal;
 
     @Column(name = "edadAnimal")
     private Integer edadAnimal;
 
-    @Column(name = "estatura")
+    @Column(name = "estatura", length = 50)
     private String estatura;
 
     @Column(name = "esterilizado")

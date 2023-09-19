@@ -22,10 +22,10 @@ public class EstadoAnimal implements Serializable {
     @Column(name = "tipoEstadoAnimal")
     private String tipoEstadoAnimal;
 
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", length = 300)
     private String descripcion;
 
-    @Column(name = "estado")
+    @Column(name = "estado", length = 30)
     private String estado;
 
     // REFERENCE

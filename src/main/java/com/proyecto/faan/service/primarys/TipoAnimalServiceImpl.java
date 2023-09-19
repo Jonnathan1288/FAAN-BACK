@@ -23,4 +23,9 @@ public class TipoAnimalServiceImpl extends GenericServiceImpl<TipoAnimal, Intege
     public List<PeyloadNumeroAnimalTipo> countAnimalesByTipoAnimal() {
         return tipoAnimalRepository.countAnimalesByTipoAnimal();
     }
+
+    @Override
+    public List<TipoAnimal> findByEstadoTipo() {
+        return tipoAnimalRepository.findByEstadoTipo("A");
+    }
 }

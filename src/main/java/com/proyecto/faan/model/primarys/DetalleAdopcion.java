@@ -30,10 +30,10 @@ public class DetalleAdopcion {
     @Column(name = "idAdopcion")
     private Integer idAdopcion;
 
-    @Column(name = "observacion")
+    @Column(name = "observacion", length = 1500)
     private String observacion;
 
-    @Column(name = "documento")
+    @Column(name = "documento", length = 100)
     private String documento;
 
     @ManyToOne

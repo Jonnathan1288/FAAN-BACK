@@ -1,6 +1,7 @@
 package com.proyecto.faan.service.primarys;
 
 import com.proyecto.faan.model.primarys.Animal;
+import com.proyecto.faan.payload.AnimalFilter;
 import com.proyecto.faan.payload.PeyloadAnimal;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
@@ -84,6 +85,16 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
             return findAnimal;
         }
         return null;
+    }
+
+    @Override
+    public List<AnimalFilter> findByEsterilizadoAnimalFilterExport(Boolean esterilizado) {
+        return animalRepository.findByEsterilizadoAnimalFilterExport(esterilizado);
+    }
+
+    @Override
+    public List<AnimalFilter> findByMultipleAttributes(Boolean esterilizado, String status) {
+        return animalRepository.findByMultipleAttributes(esterilizado, status);
     }
     //    ====================================================================================
 
