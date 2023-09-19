@@ -19,10 +19,10 @@ public class SituacionIngreso implements Serializable {
     @Column(name = "idSituacionIngreso")
     private Integer idSituacionIngreso;
 
-    @Column(name = "nombreSituacionIngreso")
+    @Column(name = "nombreSituacionIngreso", length = 70)
     private String nombreSituacionIngreso;
 
-    @Column(name = "estadoSituacionIngreso")
+    @Column(name = "estadoSituacionIngreso", length = 20)
     private String estadoSituacionIngreso;
 
     @JsonIgnore

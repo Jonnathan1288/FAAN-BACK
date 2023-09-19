@@ -18,9 +18,6 @@ public class VacunaServiceImpl extends GenericServiceImpl<Vacuna, Integer> imple
     @Autowired
     private VacunaRepository vacunaRepository;
 
-    @Autowired
-    private NotificacionRepository notificacionRepository;
-
     @Override
     public GenericRepository<Vacuna, Integer> getDao() {
         return vacunaRepository;

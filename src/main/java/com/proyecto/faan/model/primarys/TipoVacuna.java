@@ -17,7 +17,7 @@ public class TipoVacuna {
     @Column(name = "idTipoVacuna")
     private Integer idTipoVacuna;
 
-    @Column(name = "nombreVacuna", unique = true)
+    @Column(name = "nombreVacuna", unique = true, length = 60)
     private String nombreVacuna;
 
     @Column(name = "estado")

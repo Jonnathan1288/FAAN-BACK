@@ -18,13 +18,13 @@ public class TipoAnimal implements Serializable {
     @Column(name = "idTipoAnimal")
     private Integer idTipoAnimal;
 
-    @Column(name = "nombreTipo", unique = true)
+    @Column(name = "nombreTipo", unique = true, length = 50)
     private String nombreTipo;
 
-    @Column(name = "descripcionAnimal")
+    @Column(name = "descripcionAnimal", length = 250)
     private String descripcionAnimal;
 
-    @Column(name = "estadoTipo")
+    @Column(name = "estadoTipo", length = 12)
     private String estadoTipo;
 
     @JsonIgnore

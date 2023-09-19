@@ -23,7 +23,7 @@ public class Vacuna implements Serializable { //Verficado
     @Column(name = "fechaProximaVacuna")
     private LocalDate fechaProximaVacuna;
 
-    @Column(name = "observaciones")
+    @Column(name = "observaciones", length = 500)
     private String observaciones;
 
     @Column(name = "estadoVacuna")
