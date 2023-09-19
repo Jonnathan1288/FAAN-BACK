@@ -3,6 +3,7 @@ package com.proyecto.faan.emailRecover.Controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.proyecto.faan.emailRecover.Dtos.CambiarPasswordDTO;
+import com.proyecto.faan.emailRecover.Dtos.CorreoRequest;
 import com.proyecto.faan.emailRecover.Dtos.EmailValuesDTO;
 import com.proyecto.faan.emailRecover.MessageCode.Message;
 import com.proyecto.faan.emailRecover.Services.EmailServiceImpl;
@@ -17,6 +18,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @CrossOrigin("*")
@@ -94,6 +98,21 @@ public class EmailController {
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 
+        }
+    }
+
+
+    @PostMapping("/enviar")
+    public ResponseEntity<Map<String, String>> enviarCorreo(@RequestBody CorreoRequest correoRequest) {
+        try {
+            emailService.enviarCorreo(correoRequest.getNombre(), correoRequest.getCorreo(), correoRequest.getAsunto(), correoRequest.getMensaje());
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Correo enviado con éxito");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", "Error al enviar el correo: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 }
