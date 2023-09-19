@@ -19,10 +19,10 @@ public class FichaRegistro implements Serializable {
     @Column(name = "idFichaRegistro")
     private Integer idFichaRegistro;
 
-    @Column(name = "descripcionFichaRegistro")
+    @Column(name = "descripcionFichaRegistro", length = 250)
     private String descripcionFichaRegistro;
 
-    @Column(name = "origen") //campo agregado..
+    @Column(name = "origen", length = 100) //campo agregado..
     private String origen;
 
     @JsonIgnore

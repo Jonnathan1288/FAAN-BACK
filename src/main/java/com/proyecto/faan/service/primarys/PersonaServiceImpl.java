@@ -1,6 +1,7 @@
 package com.proyecto.faan.service.primarys;
 
 import com.proyecto.faan.model.primarys.Persona;
+import com.proyecto.faan.payload.PersonFind;
 import com.proyecto.faan.repository.primarys.PersonaRepository;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import com.proyecto.faan.service.generic.GenericServiceImpl;
@@ -38,6 +39,11 @@ public class PersonaServiceImpl extends GenericServiceImpl<Persona, Integer> imp
     @Override
     public Boolean existsByCorreo(String correoPersona) {
         return personaRepository.existsByCorreo(correoPersona);
+    }
+
+    @Override
+    public PersonFind findPersonabyIdentificacion(String identificacion) {
+        return personaRepository.findPersonabyIdentificacion(identificacion);
     }
 
 }

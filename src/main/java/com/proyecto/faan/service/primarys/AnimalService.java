@@ -1,6 +1,7 @@
 package com.proyecto.faan.service.primarys;
 
 import com.proyecto.faan.model.primarys.Animal;
+import com.proyecto.faan.payload.AnimalFilter;
 import com.proyecto.faan.payload.PeyloadAnimal;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
 import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
@@ -25,5 +26,11 @@ public interface AnimalService extends GenericService<Animal, Integer> {
     //    ====================================================================================
     Page<Animal> AdoptadoOrNoAdoptado(@Param("adoptado") Boolean adoptado, @Param("nombreOrPlaca") String nombreOrPlaca, Pageable pageable);
     //    ====================================================================================
+
+    public List<AnimalFilter> findByEsterilizadoAnimalFilterExport(Boolean esterilizado);
+
+    public List<AnimalFilter> findByMultipleAttributes(Boolean esterilizado, String status);
+
+
 
 }
