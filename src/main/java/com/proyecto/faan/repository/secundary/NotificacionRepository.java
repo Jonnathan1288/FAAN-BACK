@@ -1,6 +1,7 @@
 package com.proyecto.faan.repository.secundary;
 
 import com.proyecto.faan.model.secundary.Notificacion;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
