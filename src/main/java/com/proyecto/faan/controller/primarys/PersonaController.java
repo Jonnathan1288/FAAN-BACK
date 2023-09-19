@@ -54,7 +54,6 @@ public class PersonaController extends GenericControllerImpl<Persona, Integer> {
         }
 
     }
-
     @GetMapping("/correoRegistrado/{correoPersona}")
     public Boolean correoRegistrado(@PathVariable("correoPersona") String correoPersona) {
         try {
@@ -80,4 +79,14 @@ public class PersonaController extends GenericControllerImpl<Persona, Integer> {
         }
     }
 
+    //Not admin
+    @GetMapping("/pageable/dadmin")
+    public ResponseEntity<?> findByAllPerson(Pageable pageable) {
+        try {
+            return new ResponseEntity<>(personaService.findByAllPerson(pageable), HttpStatus.OK);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
