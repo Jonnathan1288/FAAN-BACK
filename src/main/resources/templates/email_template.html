@@ -15,7 +15,9 @@
     <h1 class="information-text"><span>Hola</span> <span th:text="${username}"></span></h1>
     <h4>Haz click para recuperarla</h4>
     <div class="form-group">
-        <a th:href="@{${url}}"><button>Recuperar Contraseña</button></a>
+        <a>
+            <link rel="stylesheet" th:href="@{${url}}">Recuperar Contraseña
+        </a>
     </div>
     <div class="footer">
         <p class="information-text"><a>Patrocinado por FAAN🐶</a></p>
