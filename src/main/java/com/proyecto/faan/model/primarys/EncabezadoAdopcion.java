@@ -31,7 +31,7 @@ public class EncabezadoAdopcion {
     @Column(name = "fechaAdopcion")
     private LocalDate fechaAdopcion;
 
-    @Column(name = "observacion")
+    @Column(name = "observacion", length = 1500)
     private String observacion;
 
     @ManyToOne

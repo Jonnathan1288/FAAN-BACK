@@ -23,18 +23,17 @@ public class ControlAnimal implements Serializable {
     @Column(name = "fechaControlAnimal")
     private LocalDate fechaControlAnimal;
 
-    @Column(name = "observaciones")
+    @Column(name = "observaciones",length = 1500)
     private String observaciones;
 
     @Column(name = "estadoControl")
     private Boolean estadoControl;
 
-    @Column(name = "nombreVeterinario")
+    @Column(name = "nombreVeterinario", length = 70)
     private String nombreVeterinario;
 
     @Column(name = "pesoActual")
     private Double pesoActual;
-
 
     // RELATIONSHIP
     @ManyToOne

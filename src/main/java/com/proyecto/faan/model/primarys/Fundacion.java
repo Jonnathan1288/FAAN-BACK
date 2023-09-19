@@ -17,34 +17,34 @@ public class Fundacion {
     @Column(name = "idFudacion")
     private Integer idFudacion;
 
-    @Column(name = "ruc")
+    @Column(name = "ruc", length = 25)
     private String ruc;
 
-    @Column(name = "nombreFundacion")
+    @Column(name = "nombreFundacion", length = 70)
     private String nombreFundacion;
 
-    @Column(name = "eslogan")
+    @Column(name = "eslogan", length = 50)
     private String eslogan;
 
-    @Column(name = "objetivo")
+    @Column(name = "objetivo", length = 2000)
     private String objetivo;
 
-    @Column(name = "correo")
+    @Column(name = "correo", length = 70)
     private String correo;
 
-    @Column(name = "direccion")
+    @Column(name = "direccion", length = 70)
     private String direccion;
 
-    @Column(name = "paginaWeb")
+    @Column(name = "paginaWeb", length = 70)
     private String paginaWeb;
 
-    @Column(name = "horarios")
+    @Column(name = "horarios", length = 70)
     private String horarios;
 
-    @Column(name = "acronimo")
+    @Column(name = "acronimo", length = 40)
     private String acronimo;
 
-    @Column(name = "logoFundacion")
+    @Column(name = "logoFundacion", length = 100)
     private String logoFundacion;
 
     // REFERENCE

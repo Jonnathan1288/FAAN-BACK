@@ -18,10 +18,10 @@ public class RazaAnimal implements Serializable {
     @Column(name = "idRazaAnimal")
     private Integer idRazaAnimal;
 
-    @Column(name = "nombreRaza", unique = true)
+    @Column(name = "nombreRaza", unique = true, length = 50)
     private String nombreRaza;
 
-    @Column(name = "estadoRaza")
+    @Column(name = "estadoRaza", length = 10)
     private String estadoRaza;
 
     @ManyToOne
