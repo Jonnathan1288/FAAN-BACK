@@ -70,15 +70,15 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
         Page<Animal> findAnimal = null;
         if (adoptado) {
             if (nombreOrPlaca.length() != 0) {
-                findAnimal = animalRepository.PlacaONombreAdopciones(nombreOrPlaca, pageable);
+                findAnimal = animalRepository.findByEstadoAnimalAndNombreAnimalContainingIgnoreCaseOrEstadoAnimalAndPlacaAnimalContainingIgnoreCase("A", nombreOrPlaca, "A", nombreOrPlaca, pageable);
             } else {
-                findAnimal = animalRepository.Adopciones(pageable);
+                findAnimal = animalRepository.findByEstadoAnimal("A", pageable);
             }
         } else {
             if (nombreOrPlaca.length() != 0) {
-                findAnimal = animalRepository.PlacaONombreNoAdopciones(nombreOrPlaca, pageable);
+                findAnimal = animalRepository.findByEstadoAnimalAndNombreAnimalContainingIgnoreCaseOrEstadoAnimalAndPlacaAnimalContainingIgnoreCase("F", nombreOrPlaca, "F", nombreOrPlaca, pageable);
             } else {
-                findAnimal = animalRepository.NoAdopciones(pageable);
+                findAnimal = animalRepository.findByEstadoAnimal("F", pageable);
             }
         }
         if(findAnimal != null){
