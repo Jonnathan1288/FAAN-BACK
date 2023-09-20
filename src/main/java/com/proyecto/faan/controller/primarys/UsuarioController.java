@@ -46,4 +46,14 @@ public class UsuarioController extends GenericControllerImpl<Usuario, Integer> {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/pageable/dadmin")
+    public ResponseEntity<?> findByAllUsers(Pageable pageable) {
+        try {
+            return new ResponseEntity<>(usuarioService.findByAllUsers(pageable), HttpStatus.OK);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

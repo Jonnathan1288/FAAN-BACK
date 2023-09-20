@@ -26,4 +26,8 @@ public interface PersonaRepository extends GenericRepository<Persona, Integer> {
 
     @Query("SELECT p.idPersona as idPersona, p.identificacion as identificacion, p.correo as correo FROM Persona p WHERE p.identificacion = :identificacion")
     public PersonFind findPersonabyIdentificacion(@Param("identificacion") String identificacion);
+
+    @Query("SELECT p FROM Persona p WHERE p.idPersona <> 1")
+    public Page<Persona> findByAllPerson(Pageable pageable);
+
 }

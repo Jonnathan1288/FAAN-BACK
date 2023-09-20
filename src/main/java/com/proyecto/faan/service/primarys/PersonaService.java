@@ -19,4 +19,6 @@ public interface PersonaService extends GenericService<Persona, Integer> {
 
     public PersonFind findPersonabyIdentificacion(String identificacion);
 
+    public Page<Persona> findByAllPerson(Pageable pageable);
+
 }

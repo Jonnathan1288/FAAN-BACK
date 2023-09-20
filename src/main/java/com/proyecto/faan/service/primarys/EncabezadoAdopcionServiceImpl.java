@@ -1,6 +1,7 @@
 package com.proyecto.faan.service.primarys;
 
 import com.proyecto.faan.model.primarys.EncabezadoAdopcion;
+import com.proyecto.faan.payload.AdoptedAnimal;
 import com.proyecto.faan.repository.primarys.EncabezadoAdopcionRepository;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import com.proyecto.faan.service.generic.GenericServiceImpl;
@@ -15,5 +16,10 @@ public class EncabezadoAdopcionServiceImpl extends GenericServiceImpl<Encabezado
     @Override
     public GenericRepository<EncabezadoAdopcion, Integer> getDao() {
         return encabezadoAdopcionRepository;
+    }
+
+    @Override
+    public AdoptedAnimal findAdoptedAnimal(Integer idAnimal) {
+        return encabezadoAdopcionRepository.findAdoptedAnimal(idAnimal);
     }
 }

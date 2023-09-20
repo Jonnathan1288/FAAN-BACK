@@ -43,4 +43,9 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, Integer> imp
     public Page<Usuario> findByPersonaIdentificacionContainingIgnoreCaseOrUsernameContainingIgnoreCase(String key, Pageable pageable) {
         return usuarioRepository.findByPersonaIdentificacionContainingIgnoreCaseOrUsernameContainingIgnoreCase(key, key, pageable);
     }
+
+    @Override
+    public Page<Usuario> findByAllUsers(Pageable pageable) {
+        return usuarioRepository.findByAllUsers(pageable);
+    }
 }

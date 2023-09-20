@@ -46,4 +46,9 @@ public class PersonaServiceImpl extends GenericServiceImpl<Persona, Integer> imp
         return personaRepository.findPersonabyIdentificacion(identificacion);
     }
 
+    @Override
+    public Page<Persona> findByAllPerson(Pageable pageable) {
+        return personaRepository.findByAllPerson(pageable);
+    }
+
 }
