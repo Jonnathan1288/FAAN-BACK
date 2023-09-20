@@ -12,11 +12,11 @@
     <h2><img
             src="https://z-p3-scontent.fgye10-1.fna.fbcdn.net/v/t39.30808-6/322554354_648487350352401_8460627561493166669_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a2f6c7&_nc_eui2=AeFNKbMrq95SIh503czusgFjsvnOaCMwyTuy-c5oIzDJO8vduiS4sPSu48Xd1wdSDED3DxsXOajyeuEYmn1s9_O6&_nc_ohc=anWyWXHbdnAAX9onOoI&_nc_zt=23&_nc_ht=z-p3-scontent.fgye10-1.fna&oh=00_AfCuefUDq_D0VOQF9zJLZ6FW7-_8tQzpZV-GsmxeVaXviw&oe=650EAD9F"
             alt="logo FAAN"></h2>
-    <h1 class="information-text"><span>Hola</span> <span th:text="${username}"></span></h1>
-    <h4>Haz click abajo para recuperar contraseña</h4>
+    <h1 class="information-text"><span>Hola </span> <span th:text="${username}"></span></h1>
+    <h4>Haz click para recuperarla</h4>
     <div class="form-group">
         <a th:href="@{${url}}">
-            Recuperar Contraseña
+     Recuperar Contraseña
         </a>
     </div>
     <div class="footer">
@@ -29,7 +29,7 @@
 
 <style>
     img {
-        width: 300px;
+        width: 100px;
         border-radius: 80px;
     }
 
@@ -153,7 +153,7 @@
 
     @media screen and (max-width: 320px) {
         img {
-            max-width: 100px;
+            max-width: 100%;
             height: auto;
         }
 
