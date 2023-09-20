@@ -43,12 +43,20 @@ public class Usuario implements Serializable {
 
 
     //RELATIONS THE MANY TO MANY
+   /* @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "idUsuario"),
+            inverseJoinColumns = @JoinColumn(name = "idRol")
+    )
+    private List<Rol> roles;*/
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "idUsuario"),
-            inverseJoinColumns = @JoinColumn(name = "idRol")
+            inverseJoinColumns = @JoinColumn(name = "idRol"),
+            uniqueConstraints = @UniqueConstraint(columnNames = { "idUsuario", "idRol" })
     )
     private List<Rol> roles;
 
