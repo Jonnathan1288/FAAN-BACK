@@ -3,6 +3,7 @@ package com.proyecto.faan.repository.primarys;
 import com.proyecto.faan.model.primarys.Persona;
 import com.proyecto.faan.model.primarys.Usuario;
 import com.proyecto.faan.repository.generic.GenericRepository;
+import com.proyecto.faan.security.dtos.UserResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsuarioRepository extends GenericRepository<Usuario,Integer> {
+
+    public Usuario findByUsername(String username);
 
     public Usuario findByUsernameAndPassword(String username, String password);
 
