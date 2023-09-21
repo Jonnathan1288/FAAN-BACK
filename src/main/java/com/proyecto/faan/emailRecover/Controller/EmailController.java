@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,23 +28,18 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/auth")
 public class EmailController {
-
-    @Autowired
-    private EmailServiceImpl emailService;
-
-    @Autowired
-    private UsuarioService usuarioService;
-
     @Value("${spring.mail.username}")
     private String sendFrom;
-
-
-   // @Autowired
-    //private PasswordEncoder passwordEncoder;
-
+    private EmailServiceImpl emailService;
+    private UsuarioService usuarioService;
+    private PasswordEncoder passwordEncoder;
     private final ObjectMapper objectMapper = new ObjectMapper();
-
-
+    @Autowired
+    public EmailController(EmailServiceImpl emailService, UsuarioService usuarioService, PasswordEncoder passwordEncoder){
+        this.emailService = emailService;
+        this.usuarioService = usuarioService;
+        this.passwordEncoder = passwordEncoder;
+    }
     @GetMapping("/email/sendRecuperacionPassword/{email}")
     public ResponseEntity<?> sendEmailRecuperacion(@PathVariable("email") String email){
 
@@ -89,9 +85,8 @@ public class EmailController {
             if (usuario == null) {
                 return new ResponseEntity<>("No encontrado el usuario", HttpStatus.NOT_FOUND);
             }
-            //String passwordNew = passwordEncoder.encode(dto.getPassword());
-            //usuario.setPassword(passwordNew);
-            usuario.setPassword(dto.getPassword());
+
+            usuario.setPassword(passwordEncoder.encode(dto.getPassword()));
             usuario.setTokenPassword(null);
             usuarioService.save(usuario);
             return new ResponseEntity<>(objectMapper.writeValueAsString("SUCCESSFUL"), HttpStatus.OK);
