@@ -14,7 +14,7 @@ public interface PeyloadControlPorAnimal {
     String getnombreVeterinario();
 
     @Column(name="observaciones")
-    String observaciones();
+    String getobservaciones();
 
     @Column(name="pesoActual")
     String getpesoActual();
