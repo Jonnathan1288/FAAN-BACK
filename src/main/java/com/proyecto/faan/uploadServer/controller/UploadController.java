@@ -85,7 +85,7 @@ public class UploadController {
         }
     }
 
-    @DeleteMapping("upload/delete/{fileName}")
+    @DeleteMapping("/upload/delete/{fileName}")
     public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
         try {
             fileUploadService.deleteFile(fileName);

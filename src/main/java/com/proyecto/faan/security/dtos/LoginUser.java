@@ -1,4 +1,4 @@
-package com.proyecto.faan.security;
+package com.proyecto.faan.security.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -14,6 +14,5 @@ public class LoginUser {
     private String username;
     @NotBlank
     private String password;
-
 
 }

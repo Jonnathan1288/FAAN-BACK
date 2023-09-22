@@ -32,7 +32,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(myWebSocketHandler(), "/my-websocket-endpoint")
-                .setAllowedOriginPatterns("*");
+                .setAllowedOriginPatterns("http://localhost:4200");
     }
 
     @Bean
