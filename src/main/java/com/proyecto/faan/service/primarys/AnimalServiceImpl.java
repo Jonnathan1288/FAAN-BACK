@@ -1,10 +1,7 @@
 package com.proyecto.faan.service.primarys;
 
 import com.proyecto.faan.model.primarys.Animal;
-import com.proyecto.faan.payload.AnimalFilter;
-import com.proyecto.faan.payload.PeyloadAnimal;
-import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
-import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
+import com.proyecto.faan.payload.*;
 import com.proyecto.faan.repository.primarys.AnimalRepository;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import com.proyecto.faan.service.generic.GenericServiceImpl;
@@ -96,6 +93,13 @@ public class AnimalServiceImpl extends GenericServiceImpl<Animal, Integer> imple
     public List<AnimalFilter> findByMultipleAttributes(Boolean esterilizado, String status) {
         return animalRepository.findByMultipleAttributes(esterilizado, status);
     }
+
+    @Override
+    public Page<PayloadAnimales> findAllAnimales(Pageable pageable) {
+        Page<PayloadAnimales> animales = animalRepository.findAllAnimales(pageable);
+        return animales;
+    }
+
     //    ====================================================================================
 
 }
