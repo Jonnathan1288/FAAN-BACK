@@ -4,5 +4,6 @@ public interface PeyloadAnimal {
     String getidAnimal();
     String getplacaAnimal();
     String getnombreAnimal();
+    String getfotoAnimal();
 
 }
