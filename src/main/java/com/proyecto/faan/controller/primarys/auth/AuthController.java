@@ -50,7 +50,7 @@ public class AuthController {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             Usuario user = userService.findByUsername(userDetails.getUsername());
             UserResponseDto responseDto = new UserResponseDto(user.getIdUsuario(), user.getUsername(), user.getFotoPerfil(), user.getEstadoUsuario(), user.getRoles());
-            JwtDto jwtDto = new JwtDto(jwt, user);
+            JwtDto jwtDto = new JwtDto(jwt, responseDto);
             return new ResponseEntity<>(jwtDto, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(new Message("Revise sus credenciales " + e), HttpStatus.BAD_REQUEST);

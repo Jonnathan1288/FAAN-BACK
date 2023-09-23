@@ -1,10 +1,7 @@
 package com.proyecto.faan.service.primarys;
 
 import com.proyecto.faan.model.primarys.Animal;
-import com.proyecto.faan.payload.AnimalFilter;
-import com.proyecto.faan.payload.PeyloadAnimal;
-import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
-import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
+import com.proyecto.faan.payload.*;
 import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +28,6 @@ public interface AnimalService extends GenericService<Animal, Integer> {
 
     public List<AnimalFilter> findByMultipleAttributes(Boolean esterilizado, String status);
 
-
+    public Page<PayloadAnimales> findAllAnimales(Pageable pageable);
 
 }

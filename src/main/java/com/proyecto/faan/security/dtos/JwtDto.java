@@ -8,19 +8,15 @@ import lombok.Setter;
 @Getter
 public class JwtDto {
     private String token;
-    //private UserResponseDto userResponse;
-    private Usuario usuario;
+    private UserResponseDto userResponse;
 
     public JwtDto(String token) {
         this.token = token;
     }
 
-    /*public JwtDto(String token, UserResponseDto userResponse) {
+    public JwtDto(String token, UserResponseDto userResponse) {
         this.token = token;
         this.userResponse = userResponse;
-    }*/
-    public JwtDto(String token, Usuario usuario) {
-        this.token = token;
-        this.usuario = usuario;
     }
+
 }

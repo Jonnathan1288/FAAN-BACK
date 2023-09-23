@@ -65,7 +65,8 @@ public class MainSecurity {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
-                                .requestMatchers("/api/**", "/my-websocket-endpoint","/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                                .requestMatchers("/my-websocket-endpoint","/swagger-ui/**", "/v3/api-docs/**",  "/api/upload/{fileName:.+}/{folder}",
+                                        "/api/uploadUri/{fileName:.+}/{folder}").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())

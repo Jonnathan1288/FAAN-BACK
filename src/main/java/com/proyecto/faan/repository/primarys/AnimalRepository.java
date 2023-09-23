@@ -1,11 +1,7 @@
 package com.proyecto.faan.repository.primarys;
 
 import com.proyecto.faan.model.primarys.Animal;
-import com.proyecto.faan.model.primarys.Vacuna;
-import com.proyecto.faan.payload.AnimalFilter;
-import com.proyecto.faan.payload.PeyloadAnimal;
-import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
-import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
+import com.proyecto.faan.payload.*;
 import com.proyecto.faan.repository.generic.GenericRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -58,6 +54,9 @@ public interface AnimalRepository extends GenericRepository<Animal,Integer> {
 
     @Query("SELECT a.idAnimal AS idAnimal, a.nombreAnimal AS nombreAnimal, a.placaAnimal AS placaAnimal, a.esterilizado AS esterilizado, a.estadoAnimal AS estadoAnimal, r.nombreRaza AS nombreRaza FROM Animal a INNER JOIN a.razaAnimal r WHERE (:esterilizado IS NULL OR a.esterilizado = :esterilizado) AND (:status IS NULL OR a.estadoAnimal = :status)")
     public List<AnimalFilter> findByMultipleAttributes(@Param("esterilizado") Boolean esterilizado, @Param("status") String status);
+
+    @Query(value = "SELECT a.nombre_animal AS nombreAnimal, a.placa_animal AS placaAnimal, a.edad_animal AS edad, ra.nombre_raza AS nombreRaza, a.foto_animal AS fotoAnimal FROM animales a JOIN razas_animales ra ON a.id_raza_animal = ra.id_raza_animal", nativeQuery = true)
+    public Page<PayloadAnimales> findAllAnimales(Pageable pageable);
 
 
 }

@@ -2,10 +2,7 @@ package com.proyecto.faan.controller.primarys;
 
 import com.proyecto.faan.controller.Generic.GenericControllerImpl;
 import com.proyecto.faan.model.primarys.Animal;
-import com.proyecto.faan.payload.AnimalFilter;
-import com.proyecto.faan.payload.PeyloadAnimal;
-import com.proyecto.faan.payload.PeyloadNumeroAdopcionFecha;
-import com.proyecto.faan.payload.PeyloadNumeroAdopcionRaza;
+import com.proyecto.faan.payload.*;
 import com.proyecto.faan.service.primarys.AnimalService;
 import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +31,10 @@ public class AnimalController extends GenericControllerImpl<Animal, Integer> {
         return animalService;
     }
 
+    @GetMapping("/all")
+    public Page<PayloadAnimales> findAllAnimales(@PageableDefault(page = 0, size = 6, direction = Sort.Direction.ASC) Pageable pageable) {
+        return animalService.findAllAnimales(pageable);
+    }
     @GetMapping("/lista/PeyloadNumeroAdopcionRaza")
     public List<PeyloadNumeroAdopcionRaza> obtenerLista() {
         return animalService.findByAnimalPeyload();
