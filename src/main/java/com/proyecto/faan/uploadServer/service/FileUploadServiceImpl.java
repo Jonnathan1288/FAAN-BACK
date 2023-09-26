@@ -1,5 +1,7 @@
 package com.proyecto.faan.uploadServer.service;
 
+import com.proyecto.faan.util.MethodsConverter;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,17 +13,23 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 import java.util.stream.Stream;
+
 import org.springframework.core.io.Resource;
 
 
 import static com.proyecto.faan.uploadServer.constants.ConstantsNames.*;
+
 @Service
-public class FileUploadServiceImpl implements FileUploadService{
+public class FileUploadServiceImpl implements FileUploadService {
     //private final Path rootFolder = Paths.get(DOCUMENTS_EXEL);
     private Path rootFolder;
+
     @Override
     public String saveFile(MultipartFile file, String folder) throws IOException {
-        String uniqueFileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+
+        String originalFileName = file.getOriginalFilename().replaceAll("\\s+", "");
+
+        String uniqueFileName = UUID.randomUUID().toString() + "_" + MethodsConverter.normalizeFileName(originalFileName);
 
         byte[] bytes = file.getBytes();
         Path path = Paths.get(folder + "/" + uniqueFileName);
