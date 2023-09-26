@@ -66,7 +66,7 @@ public class MainSecurity {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/my-websocket-endpoint","/swagger-ui/**", "/v3/api-docs/**",  "/api/upload/{fileName:.+}/{folder}",
-                                        "/api/uploadUri/{fileName:.+}/{folder}").permitAll()
+                                        "/api/uploadUri/{fileName:.+}/{folder}","/api/animal/all").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
