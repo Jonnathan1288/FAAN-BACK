@@ -96,4 +96,9 @@ public class UsuarioController extends GenericControllerImpl<Usuario, Integer> {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/updatePictureUserById/{idUser}/{picture}")
+    public Integer updatePictureUserById(@PathVariable("idUser") Integer idUser, @PathVariable("picture") String picture) {
+         return usuarioService.updatePictureUserById(idUser, picture);
+    }
 }

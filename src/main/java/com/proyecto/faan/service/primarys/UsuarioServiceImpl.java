@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, Integer> implements UsuarioService{
@@ -47,5 +48,11 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, Integer> imp
     @Override
     public Page<Usuario> findByAllUsers(Pageable pageable) {
         return usuarioRepository.findByAllUsers(pageable);
+    }
+
+    @Override
+    @Transactional
+    public Integer updatePictureUserById(Integer idUser, String picture) {
+        return usuarioRepository.updatePictureUserById(idUser, picture);
     }
 }

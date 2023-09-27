@@ -62,7 +62,7 @@ public class NotificacionWebSocketHandler extends TextWebSocketHandler {
         }
     }
 
-    @Scheduled(fixedRate = 4000)
+    @Scheduled(fixedRate = 60000)
     public void enviarNotificacionesPeriodicamente() {
         // Obtener la fecha actual
         Date fechaActual = new Date();

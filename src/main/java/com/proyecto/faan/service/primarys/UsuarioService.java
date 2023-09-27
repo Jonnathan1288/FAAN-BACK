@@ -5,6 +5,7 @@ import com.proyecto.faan.service.generic.GenericService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface UsuarioService extends GenericService<Usuario, Integer> {
     public Usuario findByUsernameAndPassword(String username, String password);
@@ -18,4 +19,5 @@ public interface UsuarioService extends GenericService<Usuario, Integer> {
     public Page<Usuario> findByPersonaIdentificacionContainingIgnoreCaseOrUsernameContainingIgnoreCase(String key, Pageable pageable);
 
     public Page<Usuario> findByAllUsers(Pageable pageable);
+    public Integer updatePictureUserById(Integer idUser, String picture);
 }

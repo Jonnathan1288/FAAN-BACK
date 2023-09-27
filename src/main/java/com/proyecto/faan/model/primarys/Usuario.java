@@ -27,7 +27,7 @@ public class Usuario implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "fotoPerfil", length = 100)
+    @Column(name = "fotoPerfil", length = 300)
     private String fotoPerfil;
 
     @Column(name = "estadoUsuario", columnDefinition = "BOOLEAN")
