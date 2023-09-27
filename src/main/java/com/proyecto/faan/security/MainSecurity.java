@@ -66,7 +66,7 @@ public class MainSecurity {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/my-websocket-endpoint","/swagger-ui/**", "/v3/api-docs/**",  "/api/upload/{fileName:.+}/{folder}",
-                                        "/api/uploadUri/{fileName:.+}/{folder}","/api/animal/all").permitAll()
+                                        "/api/uploadUri/{fileName:.+}/{folder}","/api/animal/all", "/api/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
@@ -78,7 +78,7 @@ public class MainSecurity {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
+        configuration.setAllowedOrigins(List.of("http://localhost:4200", "http://167.99.0.239"));
         configuration.setAllowedMethods(List.of("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         configuration.setAllowCredentials(true);
         configuration.addExposedHeader("Message");

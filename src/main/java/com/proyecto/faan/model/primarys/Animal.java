@@ -25,7 +25,7 @@ public class Animal implements Serializable {
     @Column(name = "nombreAnimal", length = 70)
     private String nombreAnimal;
 
-    @Column(name = "fotoAnimal", length = 100)
+    @Column(name = "fotoAnimal", length = 300)
     private String fotoAnimal;
 
     @Column(name = "edadAnimal")
